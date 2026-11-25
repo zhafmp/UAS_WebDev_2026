@@ -24,7 +24,7 @@ export default function Home() {
           <p className="text-sm text-gray-600">Temukan buku lewat judul atau nama penulis.</p>
         </div>
         <div className="rounded border bg-white p-4">
-          <h2 className="font-semibold">Pantau stok</h2>
+          <h2 className="font-semibold">Lihat stok</h2>
           <p className="text-sm text-gray-600">Stok berwarna merah saat buku sedang habis.</p>
         </div>
         <div className="rounded border bg-white p-4">
