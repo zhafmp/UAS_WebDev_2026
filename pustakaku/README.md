@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PustakaKu
 
-## Getting Started
+Aplikasi katalog buku perpustakaan sederhana dengan Next.js App Router, TypeScript, Prisma, dan SQLite.
 
-First, run the development server:
+## Menjalankan aplikasi
+
+Gunakan Node.js 20.9 atau lebih baru. Jalankan perintah dari folder `pustakaku`:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pastikan file `.env` memiliki URL database berikut. Jika belum ada, buat file `.env` di folder ini:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+DATABASE_URL="file:./dev.db"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Saat server development dimulai, Prisma menyinkronkan skema ke SQLite dan mengisi data awal jika tabel buku masih kosong. Database dibuat di `prisma/dev.db`.
 
-## Learn More
+Buka [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+## Fitur dan route
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/` — halaman beranda.
+- `/buku` — daftar buku, pencarian judul/penulis, dan filter kategori.
+- `/buku/baru` — formulir validasi untuk menambahkan buku.
+- `/buku/[id]` — detail buku berdasarkan ID.
+- Route yang tidak ditemukan menampilkan halaman 404 khusus.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Perintah pemeriksaan
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```

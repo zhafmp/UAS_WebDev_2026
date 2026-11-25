@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 export default function BukuTidakDitemukan() {
   return (
     <div className="py-10 text-center">
